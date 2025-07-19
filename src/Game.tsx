@@ -1,9 +1,37 @@
 import { useState, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import "./App.css";
 
 type Player = 1 | 2;
 
-const trickGroups = [
+const trickGroupsInitiales = [
+  // Nivel 1: fundamentos básicos
+  ["Ollie", "Fakie Ollie"],
+  ["Manual x 2 seg", "Nose Manual x 2 seg"],
+  ["Pop Shuvit", "Fakie Pop Shuvit"],
+
+  // Nivel 2: giros y trucos con rotación
+  ["Frontside 180", "Backside 180"],
+
+  // Nivel 3: primeros flips
+  ["Kickflip"],
+  ["Heelflip"],
+  ["Tre Flip", "Hardflip"],
+
+  // Nivel 4: combinaciones más técnicas
+  ["Bigspin", "Varial Flip"],
+  ["360 Pop Shuvit", "Fakie Bigspin"],
+
+  // Nivel 5: trucos avanzados
+  ["Double Kickflip", "Double Heelflip"],
+
+  // Nivel 6: nivel experto
+  ["Laser Flip", "Bigspin Flip"],
+  ["Impossible", "Inward Heelflip"],
+  ["Hospital Flip", "Casper Flip"],
+];
+
+const trickGroupsAdvanced = [
   // Nivel 1: fundamentos básicos
   ["Pop Shuvit", "Fakie Pop Shuvit", "FS Pop Shuvit"],
   ["Manual x 5 seg", "Nose Manual x 5 seg"],
@@ -29,7 +57,22 @@ const trickGroups = [
   ["Hospital Flip", "Casper Flip"],
 ];
 
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
 export default function Game() {
+  const query = useQuery();
+  const nivelParam = query.get("nivel");
+  const trickGroups =
+    nivelParam?.toLocaleLowerCase() === "principiantes"
+      ? trickGroupsInitiales
+      : nivelParam?.toLocaleLowerCase() === "amateur"
+      ? trickGroupsAdvanced
+      : [];
+
+  if (trickGroups.length === 0) alert("error de trucos");
+
   const [step, setStep] = useState<"home" | "name" | "game">("home");
   const [playerNames, setPlayerNames] = useState<{ 1: string; 2: string }>({
     1: "",
@@ -249,6 +292,7 @@ export default function Game() {
         {3 - fails[player]} oportunidades
       </p>
       <p style={{ fontSize: "20px" }}>Por {currentTrick.points} puntos</p>
+      <h2>Nivel: {nivelParam}</h2>
       <div style={{ position: "absolute", top: "20px" }}>
         <p style={{ fontSize: "30px" }}>
           {playerNames[1]}: {scores[1]} puntos{" "}
