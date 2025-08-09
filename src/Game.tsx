@@ -5,53 +5,39 @@ import "./App.css";
 type Player = 1 | 2;
 
 const trickGroupsInitiales = [
-  // Nivel 1: fundamentos básicos
-  ["Ollie", "Fakie Ollie"],
+  ["Frontside 180"],
+  ["Backside 180"],
+  ["Pop Shuvit"],
   ["Manual x 2 seg", "Nose Manual x 2 seg"],
-  ["Pop Shuvit", "Fakie Pop Shuvit"],
-
-  // Nivel 2: giros y trucos con rotación
-  ["Frontside 180", "Backside 180"],
-
-  // Nivel 3: primeros flips
+  ["Fakie Pop Shuvit"],
   ["Kickflip"],
-  ["Heelflip"],
+  ["Bigspin"],
   ["Tre Flip", "Hardflip"],
+  ["Heelflip"],
 
-  // Nivel 4: combinaciones más técnicas
-  ["Bigspin", "Varial Flip"],
+  ["Varial Flip"],
   ["360 Pop Shuvit", "Fakie Bigspin"],
 
-  // Nivel 5: trucos avanzados
   ["Double Kickflip", "Double Heelflip"],
 
-  // Nivel 6: nivel experto
   ["Laser Flip", "Bigspin Flip"],
   ["Impossible", "Inward Heelflip"],
   ["Hospital Flip", "Casper Flip"],
 ];
 
 const trickGroupsAdvanced = [
-  // Nivel 1: fundamentos básicos
-  ["Pop Shuvit", "Fakie Pop Shuvit", "FS Pop Shuvit"],
-  ["Manual x 5 seg", "Nose Manual x 5 seg"],
-
-  // Nivel 2: giros y trucos con rotación
+  ["Kickflip", "Heelflip"],
   ["Frontside 180", "Backside 180"],
+  ["Pop Shuvit", "Fakie Pop Shuvit", "FS Pop Shuvit"],
 
-  // Nivel 3: primeros flips
-  ["Kickflip"],
-  ["Heelflip"],
+  ["Manual x 5 seg", "Nose Manual x 5 seg"],
   ["Tre Flip", "Hardflip"],
 
-  // Nivel 4: combinaciones más técnicas
   ["Bigspin", "Varial Flip"],
   ["360 Pop Shuvit", "Fakie Bigspin"],
 
-  // Nivel 5: trucos avanzados
   ["Double Kickflip", "Double Heelflip"],
 
-  // Nivel 6: nivel experto
   ["Laser Flip", "Bigspin Flip"],
   ["Impossible", "Inward Heelflip"],
   ["Hospital Flip", "Casper Flip"],
